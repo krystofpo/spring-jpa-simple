@@ -1,8 +1,14 @@
 package kr;
 
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class Hlavni {
 
-    public void hello() {
-        System.out.println("hello");
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        Ovladac o = context.getBean(Ovladac.class);
+        o.zkouska();
     }
 }

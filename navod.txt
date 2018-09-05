@@ -1,0 +1,20 @@
+jenom spirng, bez bootu
+jpa simple rpeositor se jmenama maetod prelozenyma na volani. bez webu, jen test na ulzoeni do db a
+vyolani
+h2 in memory db
+
+
+
+funugje spirg autowiirng, i v unit testu se spravne pouzije autwired. ve spocku se mi to
+nepodailo zprovoznit.
+
+pridam repository a h2 in memory
+
+--
+
+jky jsou dependency pro spirg bez bootu?
+nestai spring core/
+chzybi autowired
+
+jak funugje dependnecy managemnt v gradlu? spirgn plugin je pro bot ale simple spring?
+aby se vyresily spravne verze.
