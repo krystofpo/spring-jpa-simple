@@ -10,6 +10,16 @@ nepodailo zprovoznit.
 
 pridam repository a h2 in memory
 
+pridat profil pres gradle predat porfil do psirngu, pak nejaky app proerties?
+nebo beana anotavani s profilem?
+udelat test na porfil 1 na profil 2, psusitm gradlem profil
+kdyz se pusti grdle bez pofilu tak defuat profil je local. pak pridat profil dev.
+jednou pustit test s profielm local a jednou pustit test s profilem dev, pusti se bud test
+lokal nebo dev
+
+spustit main metodu s profielm dev a s profielm local pomoci JVM argumetu. spring.profiles.active\
+v IDEA nastavit configuraiton main metoda a s JVM arguentem -Dspring.profiles.active=local
+
 --
 
 jky jsou dependency pro spirg bez bootu?

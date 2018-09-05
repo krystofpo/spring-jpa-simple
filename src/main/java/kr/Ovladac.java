@@ -5,19 +5,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Ovladac {
-
-    private Dao dao;
-
-    public void zkouska() {
-        dao.vypis();
-    }
-
-    public String zkouskaTest() {
-        return dao.zk();
-    }
+    private DaoI dao;
 
     @Autowired
-    public Ovladac(Dao dao) {
+    public Ovladac(DaoI dao) {
         this.dao = dao;
+    }
+
+    public String zkouska() {
+        return dao.zk();
     }
 }
