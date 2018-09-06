@@ -20,6 +20,64 @@ lokal nebo dev
 spustit main metodu s profielm dev a s profielm local pomoci JVM argumetu. spring.profiles.active\
 v IDEA nastavit configuraiton main metoda a s JVM arguentem -Dspring.profiles.active=local
 
+datasource zkusim h2. bylo by slozity nastavovat server mode abych se tam mohkl pripojit treba pres
+h2 console, nepochopil jsem to.
+tak udelam jen in memory  a co ten init script? udelam to ? muze to by schema by generovano autoamitcky?
+
+to se definuje v hibrnate?
+
+mamd efinovany data source napojeni na db,
+pak nekde se musi efinovat orm framework napriklad iernate, ten vtvari
+sql dotazy podle entit, musi se mu nastavit ze databaze ma dialekt.
+
+pak vytvorim vlasti dotazy, jak? viz spring in acitn jpa, ne spring data jpa.
+
+
+nevim. jeslti bean datasource vytvori h2 databazi a v persistence xml se potom napoji k datasource? jmeno  a heslo se
+zadava v datasource i v persistnece. v datoruce se vztvoari a v persistence se nastavuje jak se ma pripojit?
+
+jpa je API ktere umoznuje mit za tim ruzne ORM implemenatce, napr hibernate, eclipse link.
+v kodu se pouzije JPA, takze lze vymenit hibernate za neco jineho bez zmeny kodu.
+Kde se nastavi hibernatu jak ma mapovat? to udela sam? nebo je treba konfugurace?
+ne tak jinak ve spring in aciton je
+container managed entity manager factory.
+neni treba persistence .xml
+jen bean s datasource a beana s entitanager a tomu se nasype datasource (lze tedy pouzit profily  a)
+a nasype se mu orm provider.
+
+ve spriog i aciton je jenom dv textu definovany datasource bean a pak enitmtanager ten ukazuje na datsoruce
+a na jpa provider a bean pro jpa providera. ale jak vi ten provider jaky ma pozuit credentilas
+do databaze?
+
+nastaiv se do proivdera i aut ddl aby udella v DB schema podle entit.
+
+znamena to ze musim neco udelat?
+Spring’s
+PersistenceAnnotationBeanPostProcessor
+  must  be  configured.  If  you’re
+already  using
+<context:annotation-config>
+  or
+<context:component-scan>
+,  then
+you’re  good  to  go  because  those  configur
+ation  elements  automatically  register  a
+PersistenceAnnotationBeanPostProcessor
+ bean. Otherwise, you’ll need to register
+that bean explicitly:
+@Bean
+public PersistenceAnnotationBeanPostProcessor paPostProcessor() {
+return new PersistenceAnnotationBeanPostProcessor();
+}
+
+zksuim to pridat do configu
+
+transsciton amangment jsem pridla, nebylo to napsano ve spring in action, o je chyba.
+ted zas nefunguje schema. i kdyz jsem hibenrate dal ddl nauto na true tak
+ vlogu pise ze vytvari schema, ale pak tabulka clovek neexistuje. nechapu.
+
+
+
 --
 
 jky jsou dependency pro spirg bez bootu?
